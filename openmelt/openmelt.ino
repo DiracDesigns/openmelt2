@@ -70,7 +70,6 @@ void setup() {
   delay(MAX_MS_BETWEEN_RC_UPDATES + 1);     //Wait for first RC signal to have expired
   wait_for_rc_good_and_zero_throttle();     //Verify RC signal is still good / zero throttle
 #endif
-
 }
 
 //dumps out diagnostics info
