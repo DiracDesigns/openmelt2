@@ -65,11 +65,12 @@ enum throttle_modes {
   FIXED_PWM_THROTTLE,   //Motors pins are PWM at PWM_MOTOR_ON, PWM_MOTOR_COAST or PWM_MOTOR_OFF
                         //throttle controlled by portion of each rotation motor is on
 
-  DYNAMIC_PWM_THROTTLE  //Scales PWM throttling between PWM_MOTOR_COAST and PWM_MOTOR_ON
+  DYNAMIC_PWM_THROTTLE,  //Scales PWM throttling between PWM_MOTOR_COAST and PWM_MOTOR_ON
                         //Range of throttle scaled over is determined by DYNAMIC_PWM_THROTTLE_PERCENT_MAX
                         //PWM is locked at PWM_MOTOR_ON for throttle positions higher than DYNAMIC_PWM_THROTTLE_PERCENT_MAX
                         //Robot speed is additionally controlled by portion of each rotation motor is on (unless DYNAMIC_PWM_MOTOR_ON_PORTION is defined)
                         //This mode reduces current levels during spin up at part throttle
+  Brushless_Fixed_PWM_Throttle //PWM signals meant for brushless drive
 };
 
 #define THROTTLE_TYPE BINARY_THROTTLE      //<---Throttle type set here!
@@ -87,6 +88,9 @@ enum throttle_modes {
 #define PWM_MOTOR_ON 230                          //Motor PWM ON duty cycle (Simonk: 140 seems barely on / 230 seems a good near-full-throttle value)
 #define PWM_MOTOR_COAST 100                       //Motor PWM COAST duty cycle - set to same as PWM_ESC_MOTOR_OFF for fully unpowered (best translation?)
 #define PWM_MOTOR_OFF 100                         //Motor PWM OFF duty cycle (Simonk: 100 worked well in testing - if this is too low - ESC may not init)
+#define Brushless_PWM_On 2000
+#define Brushless_PWM_Coast 1000
+#define Brushless_PWM_Off 1000
 
 
 //----------BATTERY MONITOR----------
